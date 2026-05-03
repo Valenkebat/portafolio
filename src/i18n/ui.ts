@@ -43,7 +43,7 @@ export const ui = {
     'about.title': 'About Me',
     'about.p1': 'I am a builder at heart. Whether orchestrating complex data workflows on AWS or designing home automation systems with a Raspberry Pi, I am passionate about putting together solutions that work optimally.',
     'about.p2': 'My initial background in Sociology gave me a unique perspective: I understand the human and business impact of data. This, combined with my Data Engineering skills, allows me to create pipelines that do not just move data, but generate value.',
-    'about.p3': 'In my free time, I balance my screen time by baking wholemeal bread, gardening, and playing the trombone.',
+    'about.p3': 'In my free time, I balance my screen time by gardening, cycling and playing the trombone.',
     'footer.contact': 'Contact',
   },
 } as const;

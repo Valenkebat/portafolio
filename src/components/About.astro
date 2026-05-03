@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -7,30 +7,30 @@ const t = useTranslations(lang);
 const certifications = {
   es: [
     {
-      name: 'Formación en Ingeniería de Datos',
-      issuer: 'Dateneo',
-      year: '2025',
-      tech: 'dbt · dlt · AWS',
+      name: "Formación en Ingeniería de Datos",
+      issuer: "Dateneo",
+      year: "2025",
+      tech: "dbt · dlt · AWS",
     },
     {
-      name: 'Diplomatura en Ingeniería de Datos',
-      issuer: 'UTN FRRe',
-      year: '2024',
-      link: 'https://github.com/Valenkebat/diplomatura_DE_utn',
+      name: "Diplomatura en Ingeniería de Datos",
+      issuer: "UTN FRRe",
+      year: "2024",
+      link: "https://github.com/Valenkebat/diplomatura_DE_utn",
     },
   ],
   en: [
     {
-      name: 'Data Engineering Training',
-      issuer: 'Dateneo',
-      year: '2025',
-      tech: 'dbt · dlt · AWS',
+      name: "Data Engineering Training",
+      issuer: "Dateneo",
+      year: "2025",
+      tech: "dbt · dlt · AWS",
     },
     {
-      name: 'Data Engineering Diploma',
-      issuer: 'UTN FRRe',
-      year: '2024',
-      link: 'https://github.com/Valenkebat/diplomatura_DE_utn',
+      name: "Data Engineering Diploma",
+      issuer: "UTN FRRe",
+      year: "2024",
+      link: "https://github.com/Valenkebat/diplomatura_DE_utn",
     },
   ],
 };
@@ -38,26 +38,26 @@ const certifications = {
 const education = {
   es: [
     {
-      degree: 'Analista Programador Universitario',
-      institution: 'Facultad de Informática – UNLP',
-      status: 'En curso',
+      degree: "Analista Programador Universitario",
+      institution: "Facultad de Informática – UNLP",
+      status: "En curso",
     },
     {
-      degree: 'Licenciatura en Sociología',
-      institution: 'Facultad de Humanidades – UNLP',
-      status: '2014 – 2017',
+      degree: "Licenciatura en Sociología",
+      institution: "Facultad de Humanidades – UNLP",
+      status: "2014 – 2017",
     },
   ],
   en: [
     {
-      degree: 'College Programmer Analyst',
-      institution: 'Faculty of Computer Science – UNLP',
-      status: 'In Progress',
+      degree: "College Programmer Analyst",
+      institution: "Faculty of Computer Science – UNLP",
+      status: "In Progress",
     },
     {
       degree: "Bachelor's Degree in Sociology",
-      institution: 'Faculty of Humanities – UNLP',
-      status: '2014 – 2017',
+      institution: "Faculty of Humanities – UNLP",
+      status: "2014 – 2017",
     },
   ],
 };
@@ -65,63 +65,80 @@ const education = {
 const certs = certifications[lang];
 const edu = education[lang];
 
-const hobbies = ['🍞', '🌱', '🚴', '🎺'];
+const hobbies = ["🚴", "🎺"];
 const hobbyLabels = {
-  es: ['Pan integral', 'Jardinería', 'Ciclismo', 'Trombón'],
-  en: ['Whole grain bread', 'Gardening', 'Cycling', 'Trombone'],
+  es: ["Ciclismo", "Trombón"],
+  en: ["Cycling", "Trombone"],
 };
 ---
 
 <section class="about-section" id="about">
   <div class="container">
-    <h2 class="section-title">{t('about.title')}</h2>
+    <h2 class="section-title">{t("about.title")}</h2>
 
     <div class="about-grid">
       <div class="about-text">
-        <p>{t('about.p1')}</p>
-        <p>{t('about.p2')}</p>
-        <p>{t('about.p3')}</p>
+        <p>{t("about.p1")}</p>
+        <p>{t("about.p2")}</p>
+        <p>{t("about.p3")}</p>
 
         <div class="hobbies">
-          {hobbies.map((emoji, i) => (
-            <div class="hobby-pill glass">
-              <span class="hobby-emoji">{emoji}</span>
-              <span class="hobby-label">{hobbyLabels[lang][i]}</span>
-            </div>
-          ))}
+          {
+            hobbies.map((emoji, i) => (
+              <div class="hobby-pill glass">
+                <span class="hobby-emoji">{emoji}</span>
+                <span class="hobby-label">{hobbyLabels[lang][i]}</span>
+              </div>
+            ))
+          }
         </div>
       </div>
 
       <div class="about-sidebar">
         <div class="sidebar-block glass">
           <h3 class="sidebar-title">
-            {lang === 'es' ? 'Educación' : 'Education'}
+            {lang === "es" ? "Educación" : "Education"}
           </h3>
-          {edu.map(e => (
-            <div class="edu-item">
-              <p class="edu-degree">{e.degree}</p>
-              <p class="edu-institution">{e.institution}</p>
-              <span class="edu-status mono">{e.status}</span>
-            </div>
-          ))}
+          {
+            edu.map((e) => (
+              <div class="edu-item">
+                <p class="edu-degree">{e.degree}</p>
+                <p class="edu-institution">{e.institution}</p>
+                <span class="edu-status mono">{e.status}</span>
+              </div>
+            ))
+          }
         </div>
 
         <div class="sidebar-block glass">
           <h3 class="sidebar-title">
-            {lang === 'es' ? 'Cursos & Certificaciones' : 'Courses & Certifications'}
+            {
+              lang === "es"
+                ? "Cursos & Certificaciones"
+                : "Courses & Certifications"
+            }
           </h3>
-          {certs.map(c => (
-            <div class="cert-item">
-              <p class="cert-name">{c.name}</p>
-              <p class="cert-issuer">{c.issuer} · <span class="mono">{c.year}</span></p>
-              {c.tech && <p class="cert-tech mono">{c.tech}</p>}
-              {c.link && (
-                <a href={c.link} target="_blank" rel="noopener" class="cert-link">
-                  GitHub ↗
-                </a>
-              )}
-            </div>
-          ))}
+          {
+            certs.map((c) => (
+              <div class="cert-item">
+                <p class="cert-name">{c.name}</p>
+                <p class="cert-issuer">
+                  {c.issuer} · <span class="mono">{c.year}</span>
+                </p>
+                {c.tech && <p class="cert-tech mono">{c.tech}</p>}
+                {c.link && (
+                  <a
+                    href={c.link}
+                    target="_blank"
+                    rel="noopener"
+                    class="cert-link"
+                  >
+                    GitHub ↗
+                  </a>
+                )}
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>
