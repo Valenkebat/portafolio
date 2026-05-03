@@ -20,6 +20,9 @@ const lang = getLangFromUrl(Astro.url);
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{title}</title>
+		<!-- Cloudflare Web Analytics -->
+		<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "68c152e92dba44579c24f38f9b41242d"}'></script>
+		<!-- End Cloudflare Web Analytics -->
 	</head>
 	<body>
 		<Header />
