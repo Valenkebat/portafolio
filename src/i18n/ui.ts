@@ -1,0 +1,49 @@
+export const languages = {
+  es: 'Español',
+  en: 'English',
+};
+
+export const defaultLang = 'es';
+
+export const ui = {
+  es: {
+    'nav.experience': 'Experiencia',
+    'nav.skills': 'Habilidades',
+    'nav.about': 'Sobre Mí',
+    'hero.title': 'Ingeniero de Datos',
+    'hero.subtitle': 'Transformando datos crudos en soluciones escalables. Construyo pipelines robustos y optimizo infraestructuras cloud.',
+    'hero.cta': 'Ver Experiencia',
+    'hero.cv': 'Descargar CV',
+    'experience.title': 'Experiencia Laboral',
+    'experience.present': 'Actualidad',
+    'skills.title': 'Habilidades Técnicas',
+    'skills.orchestration': 'Orquestación & Data',
+    'skills.cloud': 'Cloud & Infraestructura',
+    'skills.programming': 'Programación & Bases de Datos',
+    'about.title': 'Sobre Mí',
+    'about.p1': 'Soy un constructor de corazón. Ya sea orquestando complejos flujos de datos en AWS o diseñando sistemas de automatización doméstica con una Raspberry Pi, me apasiona armar soluciones que funcionen de manera óptima.',
+    'about.p2': 'Mi formación inicial en Sociología me dio una perspectiva única: entiendo el impacto humano y de negocio que tienen los datos. Esto, combinado con mis habilidades en Data Engineering, me permite crear pipelines que no solo mueven datos, sino que generan valor.',
+    'about.p3': 'En mi tiempo libre, equilibro el tiempo frente a la pantalla horneando pan integral, cultivando mi jardín y tocando el trombón.',
+    'footer.contact': 'Contacto',
+  },
+  en: {
+    'nav.experience': 'Experience',
+    'nav.skills': 'Skills',
+    'nav.about': 'About Me',
+    'hero.title': 'Data Engineer',
+    'hero.subtitle': 'Transforming raw data into scalable solutions. I build robust pipelines and optimize cloud infrastructures.',
+    'hero.cta': 'View Experience',
+    'hero.cv': 'Download CV',
+    'experience.title': 'Work Experience',
+    'experience.present': 'Present',
+    'skills.title': 'Technical Skills',
+    'skills.orchestration': 'Orchestration & Data',
+    'skills.cloud': 'Cloud & Infrastructure',
+    'skills.programming': 'Programming & Databases',
+    'about.title': 'About Me',
+    'about.p1': 'I am a builder at heart. Whether orchestrating complex data workflows on AWS or designing home automation systems with a Raspberry Pi, I am passionate about putting together solutions that work optimally.',
+    'about.p2': 'My initial background in Sociology gave me a unique perspective: I understand the human and business impact of data. This, combined with my Data Engineering skills, allows me to create pipelines that do not just move data, but generate value.',
+    'about.p3': 'In my free time, I balance my screen time by baking wholemeal bread, gardening, and playing the trombone.',
+    'footer.contact': 'Contact',
+  },
+} as const;

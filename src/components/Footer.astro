@@ -1,0 +1,74 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<footer class="footer glass">
+  <div class="container footer-inner">
+    <p class="footer-name mono">Valentín Kebat</p>
+    <p class="footer-role">{t('hero.title')} · La Plata, Argentina</p>
+
+    <div class="footer-links">
+      <a href="mailto:valenkebat@gmail.com" id="footer-email">valenkebat@gmail.com</a>
+      <a href="https://github.com/Valenkebat" target="_blank" rel="noopener" id="footer-github">GitHub</a>
+      <a href="https://www.linkedin.com/in/valentin-kebat-b1b892208/" target="_blank" rel="noopener" id="footer-linkedin">LinkedIn</a>
+    </div>
+
+    <p class="footer-copy">
+      © {new Date().getFullYear()} Valentín Kebat · Built with 
+      <a href="https://astro.build" target="_blank" rel="noopener">Astro</a> & 
+      <a href="https://pages.cloudflare.com" target="_blank" rel="noopener">Cloudflare Pages</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 3rem 0;
+    margin-top: 4rem;
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    text-align: center;
+  }
+
+  .footer-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .footer-role {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0.5rem 0;
+  }
+
+  .footer-links a {
+    font-size: 0.9rem;
+    transition: var(--transition);
+  }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    color: var(--color-text-muted);
+  }
+
+  .footer-copy a {
+    font-size: 0.78rem;
+  }
+</style>

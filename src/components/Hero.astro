@@ -1,0 +1,206 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const cvFile = lang === 'es' ? '/Valentin_Kebat_CV_Espanol_Completo.pdf' : '/Valentin_Kebat_CV_Ingles_Completo.pdf';
+---
+
+<section class="hero">
+  <div class="container hero-container">
+    <div class="hero-content">
+      <p class="hero-label mono">
+        <span class="text-gradient">// data engineer</span>
+      </p>
+      <h1 class="hero-name">Valentín <span class="text-gradient">Kebat</span></h1>
+      <h2 class="hero-role">{t('hero.title')}</h2>
+      <p class="hero-subtitle">{t('hero.subtitle')}</p>
+
+      <div class="hero-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Apache Airflow</span>
+        <span class="tag">dbt</span>
+        <span class="tag">AWS</span>
+        <span class="tag">SQL</span>
+        <span class="tag">Docker</span>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#experience" class="btn-primary" id="hero-cta-experience">
+          {t('hero.cta')} <span aria-hidden="true">↓</span>
+        </a>
+        <a href={cvFile} download class="btn-secondary" id="hero-cta-cv">
+          {t('hero.cv')} <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+
+      <div class="hero-contact">
+        <a href="mailto:valenkebat@gmail.com" id="hero-email">valenkebat@gmail.com</a>
+        <span class="separator">·</span>
+        <a href="https://github.com/Valenkebat" target="_blank" rel="noopener" id="hero-github">GitHub</a>
+        <span class="separator">·</span>
+        <span class="mono" style="color: var(--color-text-muted); font-size: 0.85rem;">La Plata, Argentina</span>
+      </div>
+    </div>
+
+    <div class="hero-image-wrap">
+      <div class="image-glow"></div>
+      <img src="/Mifoto.jpg" alt="Valentín Kebat" class="hero-photo" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 70px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 255, 204, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4rem;
+    align-items: center;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .hero-label {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-muted);
+  }
+
+  .hero-name {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-role {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-weight: 400;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .tag {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    transition: var(--transition);
+  }
+
+  .tag:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .hero-contact {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    flex-wrap: wrap;
+  }
+
+  .separator {
+    color: var(--color-border);
+  }
+
+  .hero-image-wrap {
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .image-glow {
+    position: absolute;
+    inset: -12px;
+    background: conic-gradient(from 0deg, var(--color-primary), var(--color-secondary), var(--color-primary));
+    border-radius: 50%;
+    opacity: 0.3;
+    filter: blur(20px);
+    animation: spin 8s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .hero-photo {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+    border: 3px solid var(--color-border);
+  }
+
+  @media (max-width: 768px) {
+    .hero-container {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .hero-image-wrap {
+      order: -1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-photo {
+      width: 200px;
+      height: 200px;
+    }
+
+    .hero-tags, .hero-cta, .hero-contact {
+      justify-content: center;
+    }
+
+    .hero-subtitle {
+      margin: 0 auto 2rem;
+    }
+  }
+</style>
