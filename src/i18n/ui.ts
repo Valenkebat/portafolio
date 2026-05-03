@@ -23,7 +23,7 @@ export const ui = {
     'about.title': 'Sobre Mí',
     'about.p1': 'Soy un constructor de corazón. Ya sea orquestando complejos flujos de datos en AWS o diseñando sistemas de automatización doméstica con una Raspberry Pi, me apasiona armar soluciones que funcionen de manera óptima.',
     'about.p2': 'Mi formación inicial en Sociología me dio una perspectiva única: entiendo el impacto humano y de negocio que tienen los datos. Esto, combinado con mis habilidades en Data Engineering, me permite crear pipelines que no solo mueven datos, sino que generan valor.',
-    'about.p3': 'En mi tiempo libre, equilibro el tiempo frente a la pantalla horneando pan integral, cultivando mi jardín y tocando el trombón.',
+    'about.p3': 'En mi tiempo libre, equilibro el tiempo frente a la pantalla cultivando mi jardín, tocando el trombón y haciendo ejercicio.',
     'footer.contact': 'Contacto',
   },
   en: {
