@@ -1,8 +1,8 @@
 ---
-import '../styles/global.css';
-import { getLangFromUrl } from '../i18n/utils';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import "../styles/global.css";
+import { getLangFromUrl } from "../i18n/utils";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
 	title: string;
@@ -15,21 +15,32 @@ const {
 } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
-const canonicalURL = new URL(Astro.url.pathname, "https://valentinkebat.com");
-const ogImage = "https://valentinkebat.com/Mifoto.jpg";
+const canonicalURL = new URL(
+	Astro.url.pathname,
+	"https://valentinkebat.com.ar",
+);
+const ogImage = "https://valentinkebat.com.ar/valentin-kebat.jpg";
 
 const jsonLd = {
 	"@context": "https://schema.org",
 	"@type": "Person",
-	"name": "Valentín Kebat",
-	"url": "https://valentinkebat.com",
-	"image": ogImage,
-	"jobTitle": "Data Engineer",
-	"sameAs": [
+	name: "Valentín Kebat",
+	url: "https://valentinkebat.com.ar",
+	image: ogImage,
+	jobTitle: "Data Engineer",
+	sameAs: [
 		"https://www.linkedin.com/in/valentin-kebat/",
-		"https://github.com/Valenkebat"
+		"https://github.com/Valenkebat",
 	],
-	"knowsAbout": ["Data Engineering", "Python", "SQL", "Apache Spark", "dbt", "Cloud Computing", "ETL Pipelines"]
+	knowsAbout: [
+		"Data Engineering",
+		"Python",
+		"SQL",
+		"Apache Spark",
+		"dbt",
+		"Cloud Computing",
+		"ETL Pipelines",
+	],
 };
 ---
 
@@ -44,7 +55,10 @@ const jsonLd = {
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<meta name="author" content="Valentín Kebat" />
-		<meta name="keywords" content="Valentín Kebat, Valentin Kebat, Data Engineer, Python, SQL, dbt, Spark, portfolio, Argentina" />
+		<meta
+			name="keywords"
+			content="Valentín Kebat, Valentin Kebat, Data Engineer, Python, SQL, dbt, Spark, portfolio, Argentina"
+		/>
 		<meta name="robots" content="index, follow" />
 
 		<!-- Open Graph (LinkedIn, WhatsApp, Facebook) -->
@@ -53,7 +67,10 @@ const jsonLd = {
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={ogImage} />
-		<meta property="og:locale" content={lang === "es" ? "es_AR" : "en_US"} />
+		<meta
+			property="og:locale"
+			content={lang === "es" ? "es_AR" : "en_US"}
+		/>
 		<meta property="og:site_name" content="Valentín Kebat — Portfolio" />
 
 		<!-- Twitter Card -->
@@ -70,7 +87,11 @@ const jsonLd = {
 		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
 		<!-- Cloudflare Web Analytics -->
-		<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "68c152e92dba44579c24f38f9b41242d"}'></script>
+		<script
+			defer
+			src="https://static.cloudflareinsights.com/beacon.min.js"
+			data-cf-beacon='{"token": "68c152e92dba44579c24f38f9b41242d"}'
+		></script>
 		<!-- End Cloudflare Web Analytics -->
 	</head>
 	<body>
