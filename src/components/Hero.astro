@@ -1,9 +1,12 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const cvFile = lang === 'es' ? '/Valentin_Kebat_CV_Espanol_Completo.pdf' : '/Valentin_Kebat_CV_Ingles_Completo.pdf';
+const cvFile =
+  lang === "es"
+    ? "/Valentin_Kebat_CV_español.pdf"
+    : "/Valentin_Kebat_CV_english.pdf";
 ---
 
 <section class="hero">
@@ -12,9 +15,11 @@ const cvFile = lang === 'es' ? '/Valentin_Kebat_CV_Espanol_Completo.pdf' : '/Val
       <p class="hero-label mono">
         <span class="text-gradient">// data engineer</span>
       </p>
-      <h1 class="hero-name">Valentín <span class="text-gradient">Kebat</span></h1>
-      <h2 class="hero-role">{t('hero.title')}</h2>
-      <p class="hero-subtitle">{t('hero.subtitle')}</p>
+      <h1 class="hero-name">
+        Valentín <span class="text-gradient">Kebat</span>
+      </h1>
+      <h2 class="hero-role">{t("hero.title")}</h2>
+      <p class="hero-subtitle">{t("hero.subtitle")}</p>
 
       <div class="hero-tags">
         <span class="tag">Python</span>
@@ -27,19 +32,32 @@ const cvFile = lang === 'es' ? '/Valentin_Kebat_CV_Espanol_Completo.pdf' : '/Val
 
       <div class="hero-cta">
         <a href="#experience" class="btn-primary" id="hero-cta-experience">
-          {t('hero.cta')} <span aria-hidden="true">↓</span>
+          {t("hero.cta")}
+          <span aria-hidden="true">↓</span>
         </a>
         <a href={cvFile} download class="btn-secondary" id="hero-cta-cv">
-          {t('hero.cv')} <span aria-hidden="true">↗</span>
+          {t("hero.cv")}
+          <span aria-hidden="true">↗</span>
         </a>
       </div>
 
       <div class="hero-contact">
-        <a href="mailto:valenkebat@gmail.com" id="hero-email">valenkebat@gmail.com</a>
+        <a href="mailto:valenkebat@gmail.com" id="hero-email"
+          >valenkebat@gmail.com</a
+        >
         <span class="separator">·</span>
-        <a href="https://github.com/Valenkebat" target="_blank" rel="noopener" id="hero-github">GitHub</a>
+        <a
+          href="https://github.com/Valenkebat"
+          target="_blank"
+          rel="noopener"
+          id="hero-github">GitHub</a
+        >
         <span class="separator">·</span>
-        <span class="mono" style="color: var(--color-text-muted); font-size: 0.85rem;">La Plata, Argentina</span>
+        <span
+          class="mono"
+          style="color: var(--color-text-muted); font-size: 0.85rem;"
+          >La Plata, Argentina</span
+        >
       </div>
     </div>
 
@@ -61,13 +79,17 @@ const cvFile = lang === 'es' ? '/Valentin_Kebat_CV_Espanol_Completo.pdf' : '/Val
   }
 
   .hero::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -20%;
     right: -10%;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(0, 255, 204, 0.05) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(0, 255, 204, 0.05) 0%,
+      transparent 70%
+    );
     pointer-events: none;
   }
 
@@ -157,7 +179,12 @@ const cvFile = lang === 'es' ? '/Valentin_Kebat_CV_Espanol_Completo.pdf' : '/Val
   .image-glow {
     position: absolute;
     inset: -12px;
-    background: conic-gradient(from 0deg, var(--color-primary), var(--color-secondary), var(--color-primary));
+    background: conic-gradient(
+      from 0deg,
+      var(--color-primary),
+      var(--color-secondary),
+      var(--color-primary)
+    );
     border-radius: 50%;
     opacity: 0.3;
     filter: blur(20px);
@@ -165,7 +192,9 @@ const cvFile = lang === 'es' ? '/Valentin_Kebat_CV_Espanol_Completo.pdf' : '/Val
   }
 
   @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   .hero-photo {
@@ -195,7 +224,9 @@ const cvFile = lang === 'es' ? '/Valentin_Kebat_CV_Espanol_Completo.pdf' : '/Val
       height: 200px;
     }
 
-    .hero-tags, .hero-cta, .hero-contact {
+    .hero-tags,
+    .hero-cta,
+    .hero-contact {
       justify-content: center;
     }
 
