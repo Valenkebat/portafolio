@@ -8,6 +8,7 @@ export const defaultLang = 'es';
 export const ui = {
   es: {
     'nav.experience': 'Experiencia',
+    'nav.projects': 'Proyectos',
     'nav.skills': 'Habilidades',
     'nav.about': 'Sobre Mí',
     'hero.title': 'Ingeniero de Datos',
@@ -16,6 +17,7 @@ export const ui = {
     'hero.cv': 'Descargar CV',
     'experience.title': 'Experiencia Laboral',
     'experience.present': 'Actualidad',
+    'projects.title': 'Proyectos Destacados',
     'skills.title': 'Habilidades Técnicas',
     'skills.orchestration': 'Orquestación & Data',
     'skills.cloud': 'Cloud & Infraestructura',
@@ -28,6 +30,7 @@ export const ui = {
   },
   en: {
     'nav.experience': 'Experience',
+    'nav.projects': 'Projects',
     'nav.skills': 'Skills',
     'nav.about': 'About Me',
     'hero.title': 'Data Engineer',
@@ -36,6 +39,7 @@ export const ui = {
     'hero.cv': 'Download CV',
     'experience.title': 'Work Experience',
     'experience.present': 'Present',
+    'projects.title': 'Featured Projects',
     'skills.title': 'Technical Skills',
     'skills.orchestration': 'Orchestration & Data',
     'skills.cloud': 'Cloud & Infrastructure',

@@ -1,0 +1,208 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const projects = {
+  es: [
+    {
+      title: 'Pipeline ETL de Top 100 Spotify',
+      problem: 'Monitorear cómo cambia el Top 100 de artistas y sus canciones más escuchadas a lo largo del tiempo, combinando datos de múltiples fuentes.',
+      solution: 'Un pipeline ETL completo con extracción incremental particionada por fecha. El sistema captura snapshots diarios del ranking, los procesa en capas (raw → staging → analytics) y permite análisis temporal de tendencias musicales.',
+      stack: ['Python', 'APIs', 'Particionado por fecha', 'Modelado en capas'],
+      link: 'https://github.com/Valenkebat/diplomatura_DE_utn',
+      subtitle: '(Diplomatura UTN, 2024)'
+    },
+    {
+      title: 'img-crop: procesamiento batch de imágenes',
+      problem: 'Subir cientos de fotos de obras públicas al portal mapainversiones.obraspublicas.gob.ar requería redimensionarlas y estructurarlas con un formato consistente. Hacerlo manualmente era inviable.',
+      solution: 'Una herramienta automatizada que procesa imágenes en lote — recorta, redimensiona y organiza la salida lista para upload web. Hoy en producción para gestión de fotos del mapa de inversiones del gobierno nacional.',
+      stack: ['Python', 'Procesamiento de imágenes'],
+      link: 'https://github.com/Valenkebat/img-crop',
+      subtitle: '(Ministerio de Obras Públicas)'
+    }
+  ],
+  en: [
+    {
+      title: 'Spotify Top 100 ETL Pipeline',
+      problem: 'Monitor how the Top 100 artists and their most streamed songs change over time by combining data from multiple sources.',
+      solution: 'A complete ETL pipeline with incrementally partitioned extraction by date. The system captures daily snapshots of the ranking, processes them in layers (raw → staging → analytics), and enables temporal analysis of music trends.',
+      stack: ['Python', 'APIs', 'Date partitioning', 'Layered modeling'],
+      link: 'https://github.com/Valenkebat/diplomatura_DE_utn',
+      subtitle: '(UTN Diploma, 2024)'
+    },
+    {
+      title: 'img-crop: batch image processing',
+      problem: 'Uploading hundreds of public works photos to the mapainversiones.obraspublicas.gob.ar portal required resizing and structuring them into a consistent format. Doing it manually was unfeasible.',
+      solution: 'An automated tool that processes images in batches — cropping, resizing, and organizing the output ready for web upload. Currently in production for managing photos for the national government\'s investment map.',
+      stack: ['Python', 'Image processing'],
+      link: 'https://github.com/Valenkebat/img-crop',
+      subtitle: '(Ministry of Public Works)'
+    }
+  ]
+};
+
+const items = projects[lang];
+---
+
+<section class="projects-section" id="projects">
+  <div class="container">
+    <h2 class="section-title">{t('projects.title')}</h2>
+
+    <div class="projects-grid">
+      {items.map((project) => (
+        <div class="project-card glass">
+          <div class="project-header">
+            <h3 class="project-title">{project.title}</h3>
+            {project.subtitle && <span class="project-subtitle">{project.subtitle}</span>}
+          </div>
+          
+          <div class="project-content">
+            <div class="content-block">
+              <h4 class="content-label mono">Problema:</h4>
+              <p>{project.problem}</p>
+            </div>
+            
+            <div class="content-block">
+              <h4 class="content-label mono">Solución:</h4>
+              <p>{project.solution}</p>
+            </div>
+          </div>
+
+          <div class="project-footer">
+            <div class="project-tags">
+              {project.stack.map(tech => (
+                <span class="project-tag">{tech}</span>
+              ))}
+            </div>
+            
+            <a href={project.link} target="_blank" rel="noopener noreferrer" class="github-link" aria-label={`Ver repositorio de ${project.title}`}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects-section {
+    padding: 6rem 0;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    transition: var(--transition);
+    height: 100%;
+  }
+
+  .project-card:hover {
+    border-color: rgba(0, 255, 204, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+  }
+
+  .project-header {
+    margin-bottom: 1.2rem;
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.3rem;
+  }
+
+  .project-subtitle {
+    font-size: 0.85rem;
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .project-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .content-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .content-label {
+    font-size: 0.8rem;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .content-block p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .project-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: auto;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .project-tag {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-secondary);
+    background: rgba(59, 130, 246, 0.08);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: var(--transition);
+    align-self: flex-start;
+  }
+
+  .github-link:hover {
+    color: var(--color-primary);
+  }
+
+  .github-link svg {
+    width: 20px;
+    height: 20px;
+  }
+</style>
