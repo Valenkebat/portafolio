@@ -35,7 +35,13 @@ const cvFile =
           {t("hero.cta")}
           <span aria-hidden="true">↓</span>
         </a>
-        <a href={cvFile} download class="btn-secondary" id="hero-cta-cv">
+        <a 
+          href={cvFile} 
+          download 
+          class="btn-secondary" 
+          id="hero-cta-cv"
+          onclick={`if(typeof gtag === 'function') gtag('event', 'download_cv', { 'cv_language': '${lang}' });`}
+        >
           {t("hero.cv")}
           <span aria-hidden="true">↗</span>
         </a>
